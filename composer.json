@@ -1,0 +1,37 @@
+{
+  "name": "postdirekt/module-autocomplete-m2",
+  "description": "Deutsche Post Direkt Addressfactory Integration for Magento2",
+  "version": "1.0.0",
+  "type": "magento2-module",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "email": "paul.siedler@netresearch.de",
+      "name": "Paul Siedler"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PostDirekt\\Autocomplete\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  },
+  "require": {
+    "php": "~7.1.3||>=7.2.0",
+    "ext-intl": "*",
+    "postdirekt/module-core": "^1.0.0",
+    "postdirekt/sdk-api-autocomplete": "^1.0.0",
+    "php-http/curl-client": "^2.0.0",
+    "nyholm/psr7": "^1.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.2.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "1.0.x-dev"
+    }
+  }
+}
