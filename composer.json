@@ -19,8 +19,9 @@
     ]
   },
   "require": {
-    "php": "~7.0.6||~7.1.3||~7.2.0",
+    "php": "~7.1.3||>=7.2.0",
     "ext-intl": "*",
+    "postdirekt/module-core": "^1.0.0",
     "postdirekt/sdk-api-autocomplete": "^1.0.0",
     "php-http/curl-client": "^2.0.0",
     "nyholm/psr7": "^1.2.0"
@@ -30,7 +31,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0.x-dev"
+      "dev-develop": "1.0.x-dev"
     }
   }
 }
