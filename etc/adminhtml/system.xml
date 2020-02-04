@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * See LICENSE.md for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="postdirekt">
+            <group id="autocomplete" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" translate="label">
+                <label>Autocomplete</label>
+                <field id="active" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0"
+                        translate="label" type="Netresearch\ConfigFields\Model\Type\Checkbox">
+                    <label>Enable Address autocompletion</label>
+                </field>
+                <field id="logging" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0"
+                       translate="label" type="Netresearch\ConfigFields\Model\Type\Checkbox">
+                    <label><![CDATA[Logging]]></label>
+                    <comment><![CDATA[You must also have Magento general logging enabled.]]></comment>
+                </field>
+             </group>
+        </section>
+    </system>
+</config>
