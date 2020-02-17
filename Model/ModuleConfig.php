@@ -17,6 +17,7 @@ use Magento\Store\Model\ScopeInterface;
  */
 class ModuleConfig
 {
+    const CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
     const CONFIG_PATH_ACTIVE = 'postdirekt/autocomplete/active';
     const CONFIG_PATH_LOGGING = 'postdirekt/autocomplete/logging';
 
@@ -59,5 +60,15 @@ class ModuleConfig
             ScopeInterface::SCOPE_STORE,
             $store
         );
+    }
+
+    /**
+     * Obtain the module version from config.
+     *
+     * @return string
+     */
+    public function getModuleVersion(): string
+    {
+        return $this->scopeConfig->getValue(self::CONFIG_PATH_VERSION);
     }
 }
