@@ -1,0 +1,12 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \PostDirekt\Addressfactory\ViewModel\Adminhtml\System\InfoBox $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<p class="info">
+    <?= $block->escapeHtml(__('Module version:')) ?>
+    <?= $block->escapeHtml($viewModel->getModuleVersion()) ?>
+</p>
