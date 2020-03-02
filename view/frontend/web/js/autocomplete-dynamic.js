@@ -30,37 +30,51 @@ define([
         var token = config.token,
             /** @var {FieldNames} fieldNames */
             fieldNames = config.fieldNames,
-            countryId = config.countryId;
-
-        var knownFields = [];
-        var fieldSet = {};
+            deCountryId = config.countryId,
+            knownElementIds = [],
+            formInputs = {
+                street: undefined,
+                city: undefined,
+                postalCode: undefined,
+                country: undefined
+            };
 
         var observer = new MutationObserver(function (mutations) {
             mutations.forEach(function (mutation) {
-                mutation.addedNodes.forEach(function (node) {
+                mutation.addedNodes.forEach(function (element) {
                     if (
-                        !_.contains(knownFields, node.id)
-                        && _.contains(Object.values(fieldNames), node.name)
+                        !_.contains(knownElementIds, element.id)
+                        && _.contains(Object.values(fieldNames), element.name)
                     ) {
-                        knownFields.push(node.id);
+                        // never process an element twice
+                        knownElementIds.push(element.id);
 
-                        // Add the node to the correct index of the fieldSet object
-                        fieldSet[_.invert(fieldNames)[node.name]] = node;
+                        // Add the element to the correct index of the formInputs object
+                        formInputs[_.invert(fieldNames)[element.name]] = element;
 
-                        if (!fieldSet.street || !fieldSet.city || !fieldSet.country || !fieldSet.postalCode) {
-                            // Stop if the fieldSet object is not complete
+                        if (!formInputs.street || !formInputs.city || !formInputs.postalCode || !formInputs.country) {
                             return;
                         }
 
-                        Autocomplete.init(createFieldMap(fieldSet), fieldSet.country, countryId, token);
-                        fieldSet = {};
+                        try {
+                            Autocomplete.init(
+                                formInputs.street,
+                                formInputs.postalCode,
+                                formInputs.city,
+                                formInputs.country,
+                                deCountryId,
+                                token
+                            );
+                        } catch (e) {
+                            console.warn('Autocomplete init failed: ' + e);
+                        }
+                        formInputs = {};
                     }
                 });
-
             });
         });
 
-        // watch the DOM for any new nodes
+        // watch the DOM for any new nodess
         observer.observe(document.body, {childList: true, subtree: true});
     };
 });
