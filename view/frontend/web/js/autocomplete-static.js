@@ -15,27 +15,27 @@ define([
     return function (config) {
         /** @var {FieldNames} fieldNames */
         var fieldNames = config.fieldNames,
-            countrySelect = document.querySelector(
-            '[name = "' + fieldNames.country + '"]'
-        );
+            formInputs = {
+            street: document.querySelector('[name="' + fieldNames.street + '"]'),
+            city: document.querySelector('[name="' + fieldNames.city + '"]'),
+            postalCode: document.querySelector('[name="' + fieldNames.postalCode + '"]'),
+            country: document.querySelector('[name="' + fieldNames.country + '"]')
+        };
 
-        if (!countrySelect) {
-            console.warn('Autocomplete init failed: Country select not found');
+        if (!formInputs.street || !formInputs.city || !formInputs.postalCode || !formInputs.country) {
+            console.warn('Autocomplete init failed: Not all neccessary inputs found in DOM', formInputs);
             return;
         }
+
         try {
-            var fieldMap = new Map(Object.keys(fieldNames).map(function (type) {
-                var name = fieldNames[type],
-                    element = document.querySelector('[name="' + name + '"]');
-                if (!element) {
-                    throw new Error('Element with name "' + name + '" does not exist');
-                }
-                return [
-                    type,
-                    element
-                ];
-            }));
-            Autocomplete.init(fieldMap, countrySelect, config.countryId, config.token);
+            Autocomplete.init(
+                formInputs.street,
+                formInputs.postalCode,
+                formInputs.city,
+                formInputs.country,
+                config.countryId,
+                config.token
+            );
         } catch (e) {
             console.warn('Autocomplete init failed: ' + e);
         }
