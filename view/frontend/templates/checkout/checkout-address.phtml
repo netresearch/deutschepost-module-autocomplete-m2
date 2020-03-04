@@ -1,0 +1,23 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+/** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel*/
+$viewModel = $block->getViewModel();
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "PostDirekt_Autocomplete/js/autocomplete-dynamic": {
+                "token": "<?= $viewModel->getToken() ?>",
+                "fieldNames": {
+                    "street": "street[0]",
+                    "city": "city",
+                    "postalCode": "postcode",
+                    "country": "country_id"
+                },
+                "countryId": "DE"
+            }
+        }
+    }
+</script>
