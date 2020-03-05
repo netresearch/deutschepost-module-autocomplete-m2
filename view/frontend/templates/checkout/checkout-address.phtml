@@ -4,12 +4,14 @@
  */
 /** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel*/
 $viewModel = $block->getViewModel();
+$token = $viewModel->getToken();
 ?>
+<?php if ($token): ?>
 <script type="text/x-magento-init">
     {
         "*": {
             "PostDirekt_Autocomplete/js/autocomplete-dynamic": {
-                "token": "<?= $viewModel->getToken() ?>",
+                "token": "<?= $token ?>",
                 "fieldNames": {
                     "street": "street[0]",
                     "city": "city",
@@ -21,3 +23,4 @@ $viewModel = $block->getViewModel();
         }
     }
 </script>
+<?php endif; ?>
