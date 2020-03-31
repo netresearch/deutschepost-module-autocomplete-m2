@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="PostdirektCustomerFillShippingAddress">
+        <arguments>
+            <argument name="address" type="entity"/>
+        </arguments>
+        <selectOption selector="{{StorefrontCustomerAddressFormSection.country}}" userInput="{{address.country_id}}" stepKey="selectCustomerCountry"/>
+        <fillField selector="{{StorefrontCustomerAddressFormSection.phoneNumber}}" userInput="{{address.telephone}}" stepKey="fillPhone"/>
+        <fillField selector="{{StorefrontCustomerAddressFormSection.streetAddress}}" userInput="{{address.streetInput}}" stepKey="fillStreet"/>
+        <wait stepKey="waitForApiResponse" time="2"/>
+        <seeElement selector="{{PostDirektCheckoutShippingAddressSection.suggestionList}}" stepKey="seeAutocompleteSuggestionList"/>
+        <click selector="{{PostDirektCheckoutShippingAddressSection.firstSuggestion}}" stepKey="selectFirstSuggestion"/>
+        <click selector="{{StorefrontCustomerAddressFormSection.useAsDefaultShippingAddressCheckBox}}" stepKey="selectNewAddressAsDefaultShippingAddress"/>
+        <click selector="{{StorefrontCustomerAddressFormSection.saveAddress}}" stepKey="saveNewAddress"/>
+    </actionGroup>
+    <actionGroup name="PostdirektCustomerFillBillingAddress">
+        <arguments>
+            <argument name="address" type="entity"/>
+        </arguments>
+        <selectOption selector="{{StorefrontCustomerAddressFormSection.country}}" userInput="{{address.country_id}}" stepKey="selectCustomerCountry"/>
+        <fillField selector="{{StorefrontCustomerAddressFormSection.phoneNumber}}" userInput="{{address.telephone}}" stepKey="fillPhone"/>
+        <fillField selector="{{StorefrontCustomerAddressFormSection.zip}}" userInput="{{address.inputPostalCode}}" stepKey="fillPostalCode"/>
+        <wait stepKey="waitForApiResponse" time="2"/>
+        <seeElement selector="{{PostDirektCheckoutShippingAddressSection.suggestionList}}" stepKey="seeAutocompleteSuggestionList"/>
+        <click selector="{{PostDirektCheckoutShippingAddressSection.firstSuggestion}}" stepKey="selectFirstSuggestion"/>
+        <wait stepKey="waitingForBillingAutoFill" time="5"/>
+        <fillField selector="{{StorefrontCustomerAddressFormSection.streetAddress}}" userInput="{{address.streetInput}}" stepKey="fillBillingStreet"/>
+        <wait stepKey="waitForApiResponseStreet" time="2"/>
+        <seeElement selector="{{PostDirektCheckoutShippingAddressSection.suggestionList}}" stepKey="seeAutocompleteBillingStreetSuggestionList"/>
+        <click selector="{{PostDirektCheckoutShippingAddressSection.firstSuggestion}}" stepKey="selectFirstBillingStreetSuggestion"/>
+        <click selector="{{StorefrontCustomerAddressFormSection.useAsDefaultBillingAddressCheckBox}}" stepKey="selectNewAddressAsDefaultBillingAddress"/>
+        <click selector="{{StorefrontCustomerAddressFormSection.saveAddress}}" stepKey="saveNewAddress"/>
+    </actionGroup>
+</actionGroups>

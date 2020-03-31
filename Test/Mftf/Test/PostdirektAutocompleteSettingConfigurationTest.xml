@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="PostDirektAutocompleteEnable">
+        <annotations>
+            <features value="Configuration"/>
+            <stories value="PostDirekt Autocomplete configuration"/>
+            <title value="PostDirekt Autocomplete configuration"/>
+            <description value="Verify that autcomplete can be configured"/>
+            <severity value="CRITICAL"/>
+            <group value="postdirekt-autocomplete-configuration"/>
+        </annotations>
+        <before>
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
+            <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToPostdirektCoreGroup">
+                <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
+                <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
+            </actionGroup>
+            <actionGroup ref="PostdirektApiCredentialsGroup" stepKey="setApiCredentials"/>
+            <actionGroup ref="PostDirektAutocompleteTabActionGroup" stepKey="navigateToAutocompleteGroup"/>
+        </before>
+        <after>
+            <actionGroup ref="PostdirektResetApiCredentialsGroup" stepKey="resetPostdirektApiCredentials"/>
+            <actionGroup ref="PostDirektAutocompleteResetConfigActionGroup" stepKey="disblePostdirektAutocomplete"/>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </after>
+        <comment userInput="-> Perform actual test" stepKey="runTestComment"/>
+        <!-- Check active state -->
+        <dontSeeCheckboxIsChecked selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
+                                  stepKey="autocompleteActiveNotChecked"/>
+        <actionGroup ref="PostDirektAutocompleteEnableActionGroup" stepKey="enableAutocomplete"/>
+
+        <!-- Check logging config -->
+        <dontSeeCheckboxIsChecked selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
+                                  stepKey="autocompleteLoggingActiveNotChecked"/>
+        <actionGroup ref="PostDirektAutocompleteEnableLoggingActionGroup" stepKey="enableAutocompleteLogging"/>
+        <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
+    </test>
+</tests>
