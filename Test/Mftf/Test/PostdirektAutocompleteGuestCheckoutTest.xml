@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="PostDirektAutocompleteGuestCheckoutShippingAddress">
+        <annotations>
+            <features value="Checkout"/>
+            <stories value="Postdirekt Autocomplete in checkout as guest with one product"/>
+            <title value="Postdirekt Autocomplete in checkout as guest with one product"/>
+            <description value="Verify that Autocomplete provides address suggestions in checkout as guest"/>
+            <severity value="CRITICAL"/>
+            <group value="postdirekt-autocomplete-checkout"/>
+        </annotations>
+        <before>
+            <comment userInput="-> Run required steps before starting with the test" stepKey="setupTestComment"/>
+
+            <createData entity="_defaultCategory" stepKey="SimpleCategory"/>
+            <createData entity="_defaultProduct" stepKey="SimpleProduct">
+                <requiredEntity createDataKey="SimpleCategory"/>
+                <field key="price">20</field>
+            </createData>
+
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
+            <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToPostdirektCoreGroup">
+                <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
+                <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
+            </actionGroup>
+            <actionGroup ref="PostdirektApiCredentialsGroup" stepKey="setApiCredentials"/>
+            <actionGroup ref="PostDirektAutocompleteTabActionGroup" stepKey="navigateToAutocompleteGroup"/>
+            <actionGroup ref="PostDirektAutocompleteFillConfigActionGroup" stepKey="configureAutocomplete"/>
+            <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </before>
+        <after>
+            <comment userInput="-> Clean up carrier configuration settings after test" stepKey="cleanTestComment"/>
+
+            <deleteData createDataKey="SimpleProduct" stepKey="deleteProduct"/>
+            <deleteData createDataKey="SimpleCategory" stepKey="deleteCategory"/>
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
+            <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToShippingCoreGroup">
+                <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
+                <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
+            </actionGroup>
+            <actionGroup ref="PostdirektResetApiCredentialsGroup" stepKey="resetPostdirektApiCredentials"/>
+            <actionGroup ref="PostDirektAutocompleteResetConfigActionGroup" stepKey="resetPostdirektAutocompleteConfig"/>
+            <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </after>
+
+        <comment userInput="-> Perform actual test" stepKey="runTestComment"/>
+
+        <actionGroup ref="OpenStoreFrontProductPageActionGroup" stepKey="openProductPage">
+            <argument name="productUrlKey" value="$$SimpleProduct.custom_attributes[url_key]$$"/>
+        </actionGroup>
+        <!-- Put our SimpleProduct into the cart -->
+        <actionGroup ref="StorefrontAddProductToCartActionGroup" stepKey="addProductToCart">
+            <argument name="product" value="$$SimpleProduct$$"/>
+            <argument name="productCount" value="1"/>
+        </actionGroup>
+        <!-- go to checkout -->
+        <actionGroup ref="GoToCheckoutFromMinicartActionGroup" stepKey="guestNavigateToCheckout"/>
+        <!-- fill shipping address -->
+        <actionGroup ref="CheckoutFillStreetShippingAddressActionGroup" stepKey="fillShippingAddress">
+            <argument name="customer" value="PostdirektNewCustomer"/>
+        </actionGroup>
+        <wait stepKey="waitingForAutoFill" time="5"/>
+        <actionGroup ref="CheckoutSelectFlatRateShippingMethodActionGroup" stepKey="selectFlatRateShipping"/>
+        <!-- go to payment step -->
+        <click selector="{{CheckoutShippingMethodsSection.next}}" stepKey="clickNext"/>
+        <!-- check autcompleted shipping address -->
+        <actionGroup ref="CheckAutocompletedAddress" stepKey="checkAutocompletedShippingAddress">
+            <argument name="customer" value="PostdirektNewCustomer"/>
+            <argument name="informationContainer" value="CheckoutPaymentSection.shipToInformation"/>
+        </actionGroup>
+        <waitForElementVisible selector="{{CheckoutPaymentSection.billingAddressNotSameCheckbox}}" stepKey="waitForElementToBeVisible"/>
+        <uncheckOption selector="{{CheckoutPaymentSection.billingAddressNotSameCheckbox}}" stepKey="uncheckSameBillingAndShippingAddress"/>
+        <!-- fill billing address -->
+        <actionGroup ref="CheckoutFillPostcodeBillingAddressGuestActionGroup" stepKey="fillBillingAddress">
+            <argument name="customer" value="PostdirektNewCustomer"/>
+        </actionGroup>
+        <click selector="{{CheckoutPaymentSection.update}}" stepKey="clickOnUpdateButton"/>
+        <!-- check autocompleted billing address -->
+        <actionGroup ref="CheckAutocompletedAddress" stepKey="checkAutocompletedBillingAddress">
+            <argument name="customer" value="PostdirektNewCustomer"/>
+            <argument name="informationContainer" value="CheckoutPaymentWithDisplayBillingAddressOnPaymentPageSection.billingAddressDetails"/>
+        </actionGroup>
+    </test>
+</tests>
