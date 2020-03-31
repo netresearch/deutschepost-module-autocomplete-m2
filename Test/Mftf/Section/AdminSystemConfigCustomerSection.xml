@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+
+    <!-- PostDirekt Core -->
+    <section name="AdminSystemConfigCustomerPostDirektCoreSection">
+        <element name="postdirektCoreGroup" type="button" selector="#postdirekt_general-head"/>
+        <element name="postdirektCoreGroupExpanded" type="button" selector="#postdirekt_general-head:not(.open)"/>
+
+        <element name="apiUserGroup" type="text" selector="#postdirekt_general_api_user"/>
+        <element name="apiPasswordGroup" type="text" selector="#postdirekt_general_api_password"/>
+    </section>
+
+    <section name="AdminSystemConfigCustomerPostDirektAutocompleteSection">
+        <element name="postdirektAutcoompleteGroup" type="button" selector="#postdirekt_autocomplete-head"/>
+        <element name="postdirektAutcoompleteGroupExpanded" type="button" selector="#postdirekt_autocomplete-head:not(.open)"/>
+
+        <element name="autocompleteActive" type="checkbox" selector="#postdirekt_autocomplete_active"/>
+        <element name="autocompleteLoggingActive" type="checkbox" selector="#postdirekt_autocomplete_logging"/>
+    </section>
+</sections>

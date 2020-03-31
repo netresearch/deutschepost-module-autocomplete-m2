@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <!-- go to Postdirekt section -->
+    <actionGroup name="NavigateToCustomerPostdirektSectionActionGroup">
+        <amOnPage url="{{AdminSystemConfigCustomerSectionPage.url}}" stepKey="navigateToCustomerPostdirektCoreSettingConfigPage"/>
+        <waitForPageLoad stepKey="waitForPostdirektSettingsConfigPageLoad"/>
+    </actionGroup>
+    <!-- set api credentials configuration -->
+    <actionGroup name="PostdirektApiCredentialsGroup">
+        <seeElement selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" stepKey="seeApiUserConfigGroup"/>
+        <fillField stepKey="setApiUsername" selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" userInput="{{_CREDS.postdirekt_autocomplete/username}}" />
+        <seeElement selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" stepKey="seeApiPasswordConfigGroup"/>
+        <fillField stepKey="setApiPassword" selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiPasswordGroup}}" userInput="{{_CREDS.postdirekt_autocomplete/password}}" />
+    </actionGroup>
+    <!-- reset api credentials configuration -->
+    <actionGroup name="PostdirektResetApiCredentialsGroup">
+        <seeElement selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" stepKey="seeApiUserConfigGroup"/>
+        <fillField stepKey="setApiUsername" selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" userInput="" />
+        <seeElement selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiUserGroup}}" stepKey="seeApiPasswordConfigGroup"/>
+        <fillField stepKey="setApiPassword" selector="{{AdminSystemConfigCustomerPostDirektCoreSection.apiPasswordGroup}}" userInput="" />
+    </actionGroup>
+
+    <!-- Expand "Autcomplete" tab -->
+    <actionGroup name="PostDirektAutocompleteTabActionGroup"
+                 extends="ScrollToAndExpandGroupActionGroup"
+    >
+        <arguments>
+            <argument name="groupName" defaultValue="AdminSystemConfigCustomerPostDirektAutocompleteSection.postdirektAutcoompleteGroup"/>
+            <argument name="groupNameExpanded" defaultValue="AdminSystemConfigCustomerPostDirektAutocompleteSection.postdirektAutcoompleteGroupExpanded"/>
+        </arguments>
+    </actionGroup>
+
+    <!-- Enabled Postdirekt Autocomplete configuration -->
+    <actionGroup name="PostDirektAutocompleteEnableActionGroup">
+        <!-- Enable "active" checkbox -->
+        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
+                     stepKey="checkOptionAutocompleteActive"/>
+    </actionGroup>
+
+    <!-- Enabled Postdirekt Autocomplete logging configuration -->
+    <actionGroup name="PostDirektAutocompleteEnableLoggingActionGroup">
+        <!-- Enable "active" checkbox -->
+        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
+                     stepKey="checkOptionAutocompleteLoggingActive"/>
+    </actionGroup>
+    <!-- enable autocomplete & logging -->
+    <actionGroup name="PostDirektAutocompleteFillConfigActionGroup">
+        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
+                    stepKey="checkOptionAutocompleteActive"/>
+        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
+                     stepKey="checkOptionAutocompleteLoggingActive"/>
+    </actionGroup>
+    <!-- disable/reset autocomplete & logging -->
+    <actionGroup name="PostDirektAutocompleteResetConfigActionGroup">
+        <uncheckOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
+                     stepKey="checkOptionAutocompleteActive"/>
+        <uncheckOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
+                     stepKey="checkOptionAutocompleteLoggingActive"/>
+    </actionGroup>
+</actionGroups>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/dataProfileSchema.xsd">
+    <entity name="PostdirektNewCustomer" type="postdirektNewCustomerData">
+        <data key="email">test@test.de</data>
+        <data key="firstName">Max</data>
+        <data key="lastName">Muster</data>
+        <data key="country_id">DE</data>
+        <data key="streetInput">Nonnens</data>
+        <data key="street">Nonnenstr.</data>
+        <data key="telephone">0123455</data>
+        <data key="city">Görlitz</data>
+        <data key="postalCode">02826</data>
+        <data key="inputPostalCode">0282</data>
+    </entity>
+    <entity name="PostdirektCustomerNewBillingAddress" type="postdirektNewBillingAddress">
+        <data key="firstName">Max</data>
+        <data key="lastName">Muster</data>
+        <data key="country_id">DE</data>
+        <data key="inputPostalCode">04158</data>
+        <data key="streetInput">Happ</data>
+        <data key="street">Happweg</data>
+        <data key="city">Leipzig</data>
+        <data key="postalCode">04158</data>
+        <data key="telephone">1234556</data>
+    </entity>
+    <entity name="PostdirektCustomerAccountNewShippingAddress" type="postdirektCustomerNewShippingAddress">
+        <data key="country_id">DE</data>
+        <data key="streetInput">Marschners</data>
+        <data key="street">Marschnerstr.</data>
+        <data key="telephone">0123455</data>
+        <data key="city">Dresden</data>
+        <data key="postalCode">01307</data>
+        <data key="inputPostalCode">0130</data>
+    </entity>
+    <entity name="PostdirektCustomerAccountNewBillingAddress" type="postdirektCustomerAccountNewBillingAddress">
+        <data key="country_id">DE</data>
+        <data key="firstName">Max</data>
+        <data key="lastName">Muster</data>
+        <data key="inputPostalCode">041</data>
+        <data key="streetInput">Nürn</data>
+        <data key="street">Nürnberger Str.</data>
+        <data key="city">Leipzig</data>
+        <data key="postalCode">04103</data>
+        <data key="telephone">1234556</data>
+    </entity>
+</entities>
