@@ -20,6 +20,5 @@
         <element name="postdirektAutcoompleteGroupExpanded" type="button" selector="#postdirekt_autocomplete-head:not(.open)"/>
 
         <element name="autocompleteActive" type="checkbox" selector="#postdirekt_autocomplete_active"/>
-        <element name="autocompleteLoggingActive" type="checkbox" selector="#postdirekt_autocomplete_logging"/>
     </section>
 </sections>

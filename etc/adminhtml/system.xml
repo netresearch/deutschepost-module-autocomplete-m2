@@ -19,12 +19,8 @@
                 </field>
                 <field id="active" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0"
                         translate="label" type="Netresearch\ConfigFields\Model\Type\Checkbox">
-                    <label>Enable Address autocompletion</label>
-                </field>
-                <field id="logging" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0"
-                       translate="label" type="Netresearch\ConfigFields\Model\Type\Checkbox">
-                    <label><![CDATA[Logging]]></label>
-                    <comment><![CDATA[You must also have Magento general logging enabled.]]></comment>
+                    <label>Address autocompletion</label>
+                    <button_label>Enabled</button_label>
                 </field>
              </group>
         </section>

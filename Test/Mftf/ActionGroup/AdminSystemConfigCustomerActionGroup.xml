@@ -43,24 +43,14 @@
                      stepKey="checkOptionAutocompleteActive"/>
     </actionGroup>
 
-    <!-- Enabled Postdirekt Autocomplete logging configuration -->
-    <actionGroup name="PostDirektAutocompleteEnableLoggingActionGroup">
-        <!-- Enable "active" checkbox -->
-        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
-                     stepKey="checkOptionAutocompleteLoggingActive"/>
-    </actionGroup>
-    <!-- enable autocomplete & logging -->
+    <!-- enable autocomplete -->
     <actionGroup name="PostDirektAutocompleteFillConfigActionGroup">
         <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
                     stepKey="checkOptionAutocompleteActive"/>
-        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
-                     stepKey="checkOptionAutocompleteLoggingActive"/>
     </actionGroup>
-    <!-- disable/reset autocomplete & logging -->
+    <!-- disable/reset autocomplete -->
     <actionGroup name="PostDirektAutocompleteResetConfigActionGroup">
         <uncheckOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
                      stepKey="checkOptionAutocompleteActive"/>
-        <uncheckOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
-                     stepKey="checkOptionAutocompleteLoggingActive"/>
     </actionGroup>
 </actionGroups>
