@@ -22,21 +22,11 @@ class InfoBox implements ArgumentInterface
      */
     private $config;
 
-    /**
-     * InfoBox constructor.
-     *
-     * @param ModuleConfig $config
-     */
     public function __construct(ModuleConfig $config)
     {
         $this->config = $config;
     }
 
-    /**
-     * Obtain the Module Version from Config.
-     *
-     * @return string
-     */
     public function getModuleVersion(): string
     {
         return $this->config->getModuleVersion();

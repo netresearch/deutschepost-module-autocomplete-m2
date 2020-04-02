@@ -17,46 +17,24 @@ use Magento\Store\Model\ScopeInterface;
  */
 class ModuleConfig
 {
-    const CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
-    const CONFIG_PATH_ACTIVE = 'postdirekt/autocomplete/active';
-    const CONFIG_PATH_LOGGING = 'postdirekt/autocomplete/logging';
+    private const CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
+    private const CONFIG_PATH_ACTIVE = 'postdirekt/autocomplete/active';
 
     /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;
 
-    /**
-     * ModuleConfig constructor.
-     * @param ScopeConfigInterface $scopeConfig
-     */
     public function __construct(
         ScopeConfigInterface $scopeConfig
     ) {
         $this->scopeConfig = $scopeConfig;
     }
 
-    /**
-     * @param string|null $store
-     * @return bool
-     */
-    public function isActive($store = null): bool
+    public function isActive(?string $store = null): bool
     {
         return (bool) $this->scopeConfig->getValue(
             self::CONFIG_PATH_ACTIVE,
-            ScopeInterface::SCOPE_STORE,
-            $store
-        );
-    }
-
-    /**
-     * @param string|null $store
-     * @return bool
-     */
-    public function isLoggingEnabled($store = null): bool
-    {
-        return (bool) $this->scopeConfig->getValue(
-            self::CONFIG_PATH_LOGGING,
             ScopeInterface::SCOPE_STORE,
             $store
         );
