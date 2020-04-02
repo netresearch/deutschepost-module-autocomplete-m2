@@ -35,11 +35,6 @@
         <dontSeeCheckboxIsChecked selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
                                   stepKey="autocompleteActiveNotChecked"/>
         <actionGroup ref="PostDirektAutocompleteEnableActionGroup" stepKey="enableAutocomplete"/>
-
-        <!-- Check logging config -->
-        <dontSeeCheckboxIsChecked selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteLoggingActive}}"
-                                  stepKey="autocompleteLoggingActiveNotChecked"/>
-        <actionGroup ref="PostDirektAutocompleteEnableLoggingActionGroup" stepKey="enableAutocompleteLogging"/>
         <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
     </test>
 </tests>
