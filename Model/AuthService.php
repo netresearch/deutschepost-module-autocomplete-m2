@@ -35,12 +35,6 @@ class AuthService
      */
     private $logger;
 
-    /**
-     * AuthService constructor.
-     * @param ConfigInterface $coreConfig
-     * @param ServiceFactoryInterface $authServiceFactory
-     * @param LoggerInterface $logger
-     */
     public function __construct(
         ConfigInterface $coreConfig,
         ServiceFactoryInterface $authServiceFactory,
