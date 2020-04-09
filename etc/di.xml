@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="PostDirekt\Sdk\Autocomplete\Api\ServiceFactoryInterface" type="PostDirekt\Sdk\Autocomplete\Service\ServiceFactory"/>
+    <preference for="PostDirekt\Sdk\Autocomplete\Authentication\Api\ServiceFactoryInterface" type="PostDirekt\Sdk\Autocomplete\Authentication\Service\ServiceFactory"/>
 </config>
