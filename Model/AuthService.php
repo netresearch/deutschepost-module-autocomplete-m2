@@ -8,8 +8,8 @@ namespace PostDirekt\Autocomplete\Model;
 
 use Magento\Framework\Exception\LocalizedException;
 use PostDirekt\Core\Api\ConfigInterface;
-use PostDirekt\Sdk\Autocomplete\Api\ServiceFactoryInterface;
-use PostDirekt\Sdk\Autocomplete\Exception\ServiceException;
+use PostDirekt\Sdk\Autocomplete\Authentication\Api\ServiceFactoryInterface;
+use PostDirekt\Sdk\Autocomplete\Authentication\Exception\ServiceException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -55,8 +55,9 @@ class AuthService
         $apiPassword = $this->coreConfig->getApiPassword();
 
         try {
-            $authService = $this->authServiceFactory->createAuthenticationService($this->logger);
-            $token = $authService->authenticate($apiUser, $apiPassword);
+            $authService = $this->authServiceFactory
+                ->createAuthenticationService($apiUser, $apiPassword, $this->logger);
+            $token = $authService->authenticate();
         } catch (ServiceException $exception) {
             throw new LocalizedException(__('Unable to fetch token'));
         }
