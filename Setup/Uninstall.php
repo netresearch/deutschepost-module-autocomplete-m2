@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace PostDirekt\Sdk\Autocomplete\Setup;
+namespace PostDirekt\Autocomplete\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
