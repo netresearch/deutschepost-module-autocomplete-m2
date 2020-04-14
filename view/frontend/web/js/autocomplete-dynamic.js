@@ -59,8 +59,8 @@ define([
                         try {
                             Autocomplete.init(
                                 formInputs.street,
-                                formInputs.postalCode,
                                 formInputs.city,
+                                formInputs.postalCode,
                                 formInputs.country,
                                 deCountryId,
                                 token
