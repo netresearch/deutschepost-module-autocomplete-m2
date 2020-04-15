@@ -1,5 +1,5 @@
 {
-    "name": "postdirekt/module-autocomplete-m2",
+    "name": "deutschepost/module-autocomplete-m2",
     "description": "Deutsche Post Direkt Addressfactory Integration for Magento2",
     "version": "1.0.0",
     "type": "magento2-module",
@@ -24,8 +24,8 @@
         "nyholm/psr7": "^1.2.0",
         "netresearch/config-fields-m2": "^1.1.0",
         "php-http/curl-client": "^2.0.0",
-        "postdirekt/module-core": "^1.0.0",
-        "postdirekt/sdk-api-autocomplete": "^1.0.0",
+        "deutschepost/module-core": "^1.0.0",
+        "deutschepost/sdk-api-autocomplete-authentication": "^1.0.0",
         "magento/framework": "^102.0.0",
         "magento/module-store": "^101.0.0",
         "magento/module-config": "^101.1.0"
