@@ -15,7 +15,7 @@ and shipping addresses in Germany for the customer in the shop frontend.
 
 Install sources:
 
-    composer require postdirekt/module-autocomplete-m2
+    composer require deutschepost/module-autocomplete-m2
 
 Enable module:
 
