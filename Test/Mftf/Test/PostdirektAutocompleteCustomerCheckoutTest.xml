@@ -109,8 +109,9 @@
             <argument name="informationContainer" value="CheckoutPaymentSection.shipToInformation"/>
         </actionGroup>
 
-        <!-- Edit billing address -->
-        <click selector="{{CheckoutPaymentSection.editAddress}}" stepKey="clickEditAddress"/>
+        <!-- uncheck billing & shipping are the same -->
+        <uncheckOption selector="{{CheckoutPaymentSection.billingAddressNotSameCheckbox}}" stepKey="uncheckSameBillingAndShippingAddress"/>
+
         <!-- select new address -->
         <selectOption selector="{{CheckoutPaymentSection.billingAddressSelectShared}}" userInput="New Address" stepKey="clickOnNewAddress"/>
         <!-- fill new billing address -->
