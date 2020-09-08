@@ -6,8 +6,10 @@
     "license": "OSL-3.0",
     "authors": [
         {
-            "email": "paul.siedler@netresearch.de",
-            "name": "Paul Siedler"
+            "email":"plugins@netresearch.de",
+            "name":"Netresearch DTT GmbH",
+            "role":"Manufacturer",
+            "homepage":"https://www.netresearch.de/"
         }
     ],
     "autoload": {
@@ -19,23 +21,23 @@
         ]
     },
     "require": {
-        "php": "~7.1.3||>=7.2.0||>=7.3.0",
+        "php": "^7.1.3",
         "ext-intl": "*",
-        "nyholm/psr7": "^1.2.0",
-        "netresearch/config-fields-m2": "^1.1.0",
-        "php-http/curl-client": "^2.0.0",
+        "netresearch/config-fields-m2": "^1.2.0",
+        "php-http/curl-client": "^2.1.0",
         "deutschepost/module-core": "^1.0.0",
         "deutschepost/sdk-api-autocomplete-authentication": "^1.0.0",
-        "magento/framework": "^102.0.0",
+        "magento/framework": "^102.0.0 || ^103.0.0",
         "magento/module-store": "^101.0.0",
         "magento/module-config": "^101.1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.2.0"
+        "phpunit/phpunit": "^6.5.0 || ^9.0.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "1.0.x-dev"
+            "dev-develop": "1.0.x-dev",
+            "dev-PDTWO-134": "1.1.x-dev"
         }
     }
 }

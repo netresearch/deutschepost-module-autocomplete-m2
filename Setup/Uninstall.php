@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace PostDirekt\Autocomplete\Setup;
@@ -10,12 +12,6 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\UninstallInterface;
 
-/**
- * Class Uninstall
- *
- * @author   Andreas Müller <andreas.mueller@netresearch.de>
- * @link     https://www.netresearch.de/
- */
 class Uninstall implements UninstallInterface
 {
     /**

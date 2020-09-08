@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace PostDirekt\Autocomplete\Model;
@@ -9,12 +11,6 @@ namespace PostDirekt\Autocomplete\Model;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 
-/**
- * Class ModuleConfig
- *
- * @author   Andreas Müller <andreas.mueller@netresearch.de>
- * @link     https://www.netresearch.de/
- */
 class ModuleConfig
 {
     private const CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
