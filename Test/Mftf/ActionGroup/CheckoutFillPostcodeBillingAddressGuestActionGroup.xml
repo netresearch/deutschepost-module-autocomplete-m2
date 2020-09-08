@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="CheckoutFillPostcodeBillingAddressGuestActionGroup">
+        <arguments>
+            <argument name="customer" type="entity"/>
+        </arguments>
+        <selectOption selector="{{CheckoutPaymentSection.guestCountry}}" userInput="{{customer.country_id}}" stepKey="selectCustomerCountry"/>
+        <fillField selector="{{CheckoutPaymentSection.guestFirstName}}" userInput="{{customer.firstName}}" stepKey="fillBillingFirstName"/>
+        <fillField selector="{{CheckoutPaymentSection.guestLastName}}" userInput="{{customer.lastName}}" stepKey="fillBillingLastName"/>
+        <fillField selector="{{CheckoutPaymentSection.guestTelephone}}" userInput="{{customer.telephone}}" stepKey="fillBillingPhone"/>
+        <fillField selector="{{CheckoutPaymentSection.guestPostcode}}" userInput="{{customer.inputPostalCode}}" stepKey="fillBillingPostcode"/>
+        <wait stepKey="waitForApiResponse" time="2"/>
+        <seeElement selector="{{PostDirektCheckoutShippingAddressSection.suggestionList}}" stepKey="seeAutocompleteBillingSuggestionList"/>
+        <click selector="{{PostDirektCheckoutShippingAddressSection.firstSuggestion}}" stepKey="selectFirstBillingSuggestion"/>
+        <wait stepKey="waitingForBillingAutoFill" time="5"/>
+        <fillField selector="{{CheckoutPaymentSection.guestStreet}}" userInput="{{customer.streetInput}}" stepKey="fillBillingStreet"/>
+        <wait stepKey="waitForApiResponseStreet" time="2"/>
+        <seeElement selector="{{PostDirektCheckoutShippingAddressSection.suggestionList}}" stepKey="seeAutocompleteBillingStreetSuggestionList"/>
+        <click selector="{{PostDirektCheckoutShippingAddressSection.firstSuggestion}}" stepKey="selectFirstBillingStreetSuggestion"/>
+    </actionGroup>
+</actionGroups>
