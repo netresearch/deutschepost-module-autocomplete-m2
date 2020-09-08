@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace PostDirekt\Autocomplete\Model;
@@ -12,12 +14,6 @@ use PostDirekt\Sdk\Autocomplete\Authentication\Api\ServiceFactoryInterface;
 use PostDirekt\Sdk\Autocomplete\Authentication\Exception\ServiceException;
 use Psr\Log\LoggerInterface;
 
-/**
- * Class AuthService
- *
- * @author   Andreas Müller <andreas.mueller@netresearch.de>
- * @link     https://www.netresearch.de/
- */
 class AuthService
 {
     /**

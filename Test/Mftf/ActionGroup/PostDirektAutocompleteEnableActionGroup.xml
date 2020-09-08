@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <!-- Enabled Postdirekt Autocomplete configuration -->
+    <actionGroup name="PostDirektAutocompleteEnableActionGroup">
+        <!-- Enable "active" checkbox -->
+        <checkOption selector="{{AdminSystemConfigCustomerPostDirektAutocompleteSection.autocompleteActive}}"
+                     stepKey="checkOptionAutocompleteActive"/>
+    </actionGroup>
+</actionGroups>
