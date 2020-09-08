@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace PostDirekt\Autocomplete\ViewModel;
@@ -11,12 +13,6 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 use PostDirekt\Autocomplete\Model\AuthService;
 use PostDirekt\Autocomplete\Model\ModuleConfig;
 
-/**
- * Class Autocomplete
- *
- * @author   Andreas Müller <andreas.mueller@netresearch.de>
- * @link     https://www.netresearch.de/
- */
 class Token implements ArgumentInterface
 {
     /**

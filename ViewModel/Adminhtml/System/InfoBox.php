@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace PostDirekt\Autocomplete\ViewModel\Adminhtml\System;
@@ -9,12 +11,6 @@ namespace PostDirekt\Autocomplete\ViewModel\Adminhtml\System;
 use PostDirekt\Autocomplete\Model\ModuleConfig;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
-/**
- * Class InfoBox
- *
- * @author  Gurjit Singh <gurjit.singh@netresearch.de>
- * @link    https://www.netresearch.de/
- */
 class InfoBox implements ArgumentInterface
 {
     /**
