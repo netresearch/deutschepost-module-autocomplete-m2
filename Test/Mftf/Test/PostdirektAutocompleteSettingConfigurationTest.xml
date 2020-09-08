@@ -6,7 +6,7 @@
 -->
 <tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
-    <test name="PostDirektAutocompleteEnable">
+    <test name="PostdirektAutocompleteSettingConfigurationTest">
         <annotations>
             <features value="Configuration"/>
             <stories value="PostDirekt Autocomplete configuration"/>
@@ -16,19 +16,19 @@
             <group value="postdirekt-autocomplete-configuration"/>
         </annotations>
         <before>
-            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="AdminLoginActionGroup" stepKey="loginAsAdmin"/>
             <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
             <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToPostdirektCoreGroup">
                 <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
                 <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
             </actionGroup>
-            <actionGroup ref="PostdirektApiCredentialsGroup" stepKey="setApiCredentials"/>
+            <actionGroup ref="PostdirektApiCredentialsGroupActionGroup" stepKey="setApiCredentials"/>
             <actionGroup ref="PostDirektAutocompleteTabActionGroup" stepKey="navigateToAutocompleteGroup"/>
         </before>
         <after>
-            <actionGroup ref="PostdirektResetApiCredentialsGroup" stepKey="resetPostdirektApiCredentials"/>
+            <actionGroup ref="PostdirektResetApiCredentialsActionGroup" stepKey="resetPostdirektApiCredentials"/>
             <actionGroup ref="PostDirektAutocompleteResetConfigActionGroup" stepKey="disblePostdirektAutocomplete"/>
-            <actionGroup ref="logout" stepKey="logout"/>
+            <actionGroup ref="AdminLogoutActionGroup" stepKey="logout"/>
         </after>
         <comment userInput="-> Perform actual test" stepKey="runTestComment"/>
         <!-- Check active state -->
