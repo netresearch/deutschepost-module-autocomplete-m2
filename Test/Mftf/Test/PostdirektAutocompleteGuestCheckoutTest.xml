@@ -6,7 +6,7 @@
 -->
 <tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
-    <test name="PostDirektAutocompleteGuestCheckoutShippingAddress">
+    <test name="PostdirektAutocompleteGuestCheckoutTest">
         <annotations>
             <features value="Checkout"/>
             <stories value="Postdirekt Autocomplete in checkout as guest with one product"/>
@@ -24,33 +24,33 @@
                 <field key="price">20</field>
             </createData>
 
-            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="AdminLoginActionGroup" stepKey="loginAsAdmin"/>
             <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
             <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToPostdirektCoreGroup">
                 <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
                 <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
             </actionGroup>
-            <actionGroup ref="PostdirektApiCredentialsGroup" stepKey="setApiCredentials"/>
+            <actionGroup ref="PostdirektApiCredentialsGroupActionGroup" stepKey="setApiCredentials"/>
             <actionGroup ref="PostDirektAutocompleteTabActionGroup" stepKey="navigateToAutocompleteGroup"/>
             <actionGroup ref="PostDirektAutocompleteFillConfigActionGroup" stepKey="configureAutocomplete"/>
             <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
-            <actionGroup ref="logout" stepKey="logout"/>
+            <actionGroup ref="AdminLogoutActionGroup" stepKey="logout"/>
         </before>
         <after>
             <comment userInput="-> Clean up carrier configuration settings after test" stepKey="cleanTestComment"/>
 
             <deleteData createDataKey="SimpleProduct" stepKey="deleteProduct"/>
             <deleteData createDataKey="SimpleCategory" stepKey="deleteCategory"/>
-            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+            <actionGroup ref="AdminLoginActionGroup" stepKey="loginAsAdmin"/>
             <actionGroup ref="NavigateToCustomerPostdirektSectionActionGroup" stepKey="navigateToCustomerSettingsConfigInTest"/>
             <actionGroup ref="ScrollToAndExpandGroupActionGroup" stepKey="navigateToShippingCoreGroup">
                 <argument name="groupName" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroup}}"/>
                 <argument name="groupNameExpanded" value="{{AdminSystemConfigCustomerPostDirektCoreSection.postdirektCoreGroupExpanded}}"/>
             </actionGroup>
-            <actionGroup ref="PostdirektResetApiCredentialsGroup" stepKey="resetPostdirektApiCredentials"/>
+            <actionGroup ref="PostdirektResetApiCredentialsActionGroup" stepKey="resetPostdirektApiCredentials"/>
             <actionGroup ref="PostDirektAutocompleteResetConfigActionGroup" stepKey="resetPostdirektAutocompleteConfig"/>
             <actionGroup ref="SaveAdminSystemConfigSectionActionGroup" stepKey="saveAdminConfigSection"/>
-            <actionGroup ref="logout" stepKey="logout"/>
+            <actionGroup ref="AdminLogoutActionGroup" stepKey="logout"/>
         </after>
 
         <comment userInput="-> Perform actual test" stepKey="runTestComment"/>
@@ -74,7 +74,7 @@
         <!-- go to payment step -->
         <click selector="{{CheckoutShippingMethodsSection.next}}" stepKey="clickNext"/>
         <!-- check autcompleted shipping address -->
-        <actionGroup ref="CheckAutocompletedAddress" stepKey="checkAutocompletedShippingAddress">
+        <actionGroup ref="CheckAutocompletedAddressActionGroup" stepKey="checkAutocompletedShippingAddress">
             <argument name="customer" value="PostdirektNewCustomer"/>
             <argument name="informationContainer" value="CheckoutPaymentSection.shipToInformation"/>
         </actionGroup>
@@ -86,7 +86,7 @@
         </actionGroup>
         <click selector="{{CheckoutPaymentSection.update}}" stepKey="clickOnUpdateButton"/>
         <!-- check autocompleted billing address -->
-        <actionGroup ref="CheckAutocompletedAddress" stepKey="checkAutocompletedBillingAddress">
+        <actionGroup ref="CheckAutocompletedAddressActionGroup" stepKey="checkAutocompletedBillingAddress">
             <argument name="customer" value="PostdirektNewCustomer"/>
             <argument name="informationContainer" value="CheckoutPaymentWithDisplayBillingAddressOnPaymentPageSection.billingAddressDetails"/>
         </actionGroup>
