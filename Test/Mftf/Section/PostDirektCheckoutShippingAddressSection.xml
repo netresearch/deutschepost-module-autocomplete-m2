@@ -10,10 +10,4 @@
         <element name="firstSuggestion" type="text" selector=".datalist li:first-child"/>
         <element name="customerSaveNewShippingAddressToAddressBook" type="checkbox" selector="#shipping-save-in-address-book"/>
     </section>
-    <section name="PostdirektCheckoutBillingAddressSection">
-        <element name="billingStreet" type="text" selector=".payment-method-billing-address input[name*='street[0]']"/>
-        <element name="billingCity" type="text" selector=".payment-method-billing-address input[name*='city']"/>
-        <element name="billingPostcode" type="text" selector=".payment-method-billing-address input[name*='postcode']"/>
-        <element name="billingPhone" type="text" selector=".payment-method-billing-address input[name*='telephone']"/>
-    </section>
 </sections>
