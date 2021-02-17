@@ -9,7 +9,7 @@ and shipping addresses in Germany for the customer in the shop frontend.
 
 ## Compatibility
 
-* Magento >= 2.3.0+
+* Magento >= 2.3.0
 
 ## Installation Instructions
 
@@ -51,4 +51,4 @@ to <postdirekt.support@netresearch.de>.
 
 ## Copyright
 
-(c) 2020 Deutsche Post AG
+(c) 2021 Deutsche Post AG
