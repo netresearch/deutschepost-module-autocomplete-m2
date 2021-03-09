@@ -39,10 +39,10 @@ This will automatically remove source files, clean up the database, update packa
 ## Support
 
 In case of questions or problems, please have a look at the
-[Support Portal (FAQ)](http://postdirekt.support.netresearch.de/) first.
+[Support Portal (FAQ)](https://postdirekt.support.netresearch.de/) first.
 
 If the issue cannot be resolved, you can contact the support team via the
-[Support Portal](http://dhl.support.netresearch.de/) or by sending an email
+[Support Portal](https://postdirekt.support.netresearch.de/) or by sending an email
 to <postdirekt.support@netresearch.de>.
 
 ## License
