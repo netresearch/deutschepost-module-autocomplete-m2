@@ -31,6 +31,7 @@ define([
             /** @var {FieldNames} fieldNames */
             fieldNames = config.fieldNames,
             deCountryId = config.countryId,
+            hint = config.hint,
             knownElementIds = [],
             formInputs = {
                 street: undefined,
@@ -63,7 +64,8 @@ define([
                                 formInputs.postalCode,
                                 formInputs.country,
                                 deCountryId,
-                                token
+                                token,
+                                hint
                             );
                         } catch (e) {
                             console.warn('Autocomplete init failed: ' + e);
