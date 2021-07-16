@@ -7,6 +7,7 @@
 /** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel*/
 $viewModel = $block->getViewModel();
 $token = $viewModel->getToken();
+$hint = $viewModel->getHouseNumberHint();
 ?>
 <?php if ($token): ?>
 <script type="text/x-magento-init">
@@ -20,7 +21,8 @@ $token = $viewModel->getToken();
                     "postalCode": "postcode",
                     "country": "country_id"
                 },
-                "countryId": "DE"
+                "countryId": "DE",
+                "hint": "<?= $hint ?>"
             }
         }
     }
