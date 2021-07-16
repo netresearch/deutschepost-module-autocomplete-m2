@@ -34,7 +34,8 @@ define([
                 formInputs.postalCode,
                 formInputs.country,
                 config.countryId,
-                config.token
+                config.token,
+                config.hint
             );
         } catch (e) {
             console.warn('Autocomplete init failed: ' + e);
