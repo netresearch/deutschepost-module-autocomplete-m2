@@ -47,4 +47,16 @@ class Token implements ArgumentInterface
 
         return $token;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getHouseNumberHint(): ?string
+    {
+        if (!$this->moduleConfig->isHouseNumberHintActive()) {
+            return null;
+        }
+
+        return $this->moduleConfig->getHouseNumberHint();
+    }
 }
