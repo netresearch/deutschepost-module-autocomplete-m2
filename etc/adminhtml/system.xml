@@ -22,7 +22,7 @@
                     <label>Address autocompletion</label>
                     <button_label>Enabled</button_label>
                 </field>
-                <field id="active_housenumber_hint" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1"
+                <field id="active_housenumber_hint" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0"
                        translate="label tooltip" type="Netresearch\ConfigFields\Model\Type\Checkbox">
                     <label>Show house number hint</label>
                     <button_label>Enabled</button_label>
