@@ -4,8 +4,9 @@
  * See LICENSE.md for license details.
  */
 
-/** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel*/
-$viewModel = $block->getViewModel();
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel */
+$viewModel = $block->getData('view_model');
 $token = $viewModel->getToken();
 $hint = $viewModel->getHouseNumberHint();
 ?>
@@ -22,7 +23,7 @@ $hint = $viewModel->getHouseNumberHint();
                     "country": "country_id"
                 },
                 "countryId": "DE",
-                "hint": "<?= $hint ?>"
+                "hint": "<?= $block->escapeHtml($hint) ?>"
             }
         }
     }
