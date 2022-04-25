@@ -5,7 +5,7 @@ and shipping addresses in Germany for the customer in the shop frontend.
 
 ## Requirements
 
-* PHP >= 7.1
+* PHP >= 7.2
 
 ## Compatibility
 
@@ -51,4 +51,4 @@ to <postdirekt.support@netresearch.de>.
 
 ## Copyright
 
-(c) 2021 Deutsche Post AG
+(c) 2022 Deutsche Post AG

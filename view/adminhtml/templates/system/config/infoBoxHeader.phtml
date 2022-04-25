@@ -6,7 +6,7 @@
 
 /** @var \Magento\Framework\View\Element\Template $block */
 /** @var \PostDirekt\Addressfactory\ViewModel\Adminhtml\System\InfoBox $viewModel */
-$viewModel = $block->getViewModel();
+$viewModel = $block->getData('view_model');
 ?>
 <p class="info">
     <?= $block->escapeHtml(__('Module version:')) ?>
