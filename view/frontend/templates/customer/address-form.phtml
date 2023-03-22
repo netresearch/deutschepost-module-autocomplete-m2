@@ -4,6 +4,10 @@
  * See LICENSE.md for license details.
  */
 
+/**
+ * Init component with field names used in Magento_Customer::address/edit.phtml
+ */
+
 /** @var \Magento\Framework\View\Element\Template $block */
 /** @var \PostDirekt\Autocomplete\ViewModel\Token $viewModel */
 $viewModel = $block->getData('view_model');
@@ -17,7 +21,7 @@ $hint = $viewModel->getHouseNumberHint();
             "PostDirekt_Autocomplete/js/autocomplete-static": {
                 "token": "<?= $token ?>",
                 "fieldNames": {
-                    "street": "street[]",
+                    "street": "street[0]",
                     "city": "city",
                     "postalCode": "postcode",
                     "country": "country_id"
