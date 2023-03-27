@@ -51,4 +51,4 @@ to <postdirekt.support@netresearch.de>.
 
 ## Copyright
 
-(c) 2022 Deutsche Post AG
+(c) 2023 Deutsche Post AG
