@@ -29,7 +29,7 @@
         "deutschepost/sdk-api-autocomplete-authentication": "^1.3.0",
         "magento/framework": "^103.0.6",
         "magento/module-config": "^101.2.6",
-        "magento/module-csp": "^100.4.7",
+        "magento/module-csp": "^100.4.5",
         "magento/module-customer": "^103.0.6",
         "magento/module-store": "^101.1.6",
         "netresearch/config-fields-m2": "^1.3.0"
