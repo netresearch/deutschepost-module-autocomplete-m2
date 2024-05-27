@@ -9,7 +9,7 @@ and shipping addresses in Germany for the customer in the shop frontend.
 
 ## Compatibility
 
-* Magento >= 2.4.7
+* Magento >= 2.4.6
 
 ## Installation Instructions
 
