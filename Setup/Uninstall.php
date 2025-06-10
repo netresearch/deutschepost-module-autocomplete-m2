@@ -18,6 +18,7 @@ class Uninstall implements UninstallInterface
      * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
      */
+    #[\Override]
     public function uninstall(SchemaSetupInterface $setup, ModuleContextInterface $context): void
     {
         $defaultConnection = $setup->getConnection();

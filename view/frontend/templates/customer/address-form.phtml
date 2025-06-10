@@ -19,7 +19,7 @@ $hint = $viewModel->getHouseNumberHint();
     {
         "*": {
             "PostDirekt_Autocomplete/js/autocomplete-static": {
-                "token": "<?= $token ?>",
+                "token": "<?= $escaper->escapeJs($token) ?>",
                 "fieldNames": {
                     "street": "street[0]",
                     "city": "city",
