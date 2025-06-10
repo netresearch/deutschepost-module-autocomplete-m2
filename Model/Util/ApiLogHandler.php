@@ -12,6 +12,7 @@ use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Logger\Handler\Exception as ExceptionHandler;
 use Magento\Framework\Logger\Handler\System;
 use Monolog\Logger;
+use Monolog\LogRecord;
 
 class ApiLogHandler extends System
 {
@@ -37,8 +38,9 @@ class ApiLogHandler extends System
         $this->logLevel = $logLevel;
     }
 
-    public function isHandling(array $record): bool
+    #[\Override]
+    public function isHandling(LogRecord $record): bool
     {
-        return $this->loggingEnabled && $record['level'] >= $this->logLevel && parent::isHandling($record);
+        return $this->loggingEnabled && $record->level->value >= $this->logLevel && parent::isHandling($record);
     }
 }
