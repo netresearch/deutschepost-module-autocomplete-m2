@@ -28,7 +28,7 @@
                 <?= $escaper->escapeHtml(__('You need a valid Deutsche Post Direkt account.')) ?>
             </p>
             <p>
-                <?= __('If you do not have an account yet or your account is not enabled for DATAFACTORY AUTOCOMPLETE, please use the <a href=\"https://www.postdirekt.de/autocomplete\" target=\"_blank\">Deutsche Post Direkt</a> website to use our address solutions.') ?>
+                <?= $escaper->escapeHtml(__('If you do not have an account yet or your account is not enabled for DATAFACTORY AUTOCOMPLETE, please use the <a href="https://www.postdirekt.de/autocomplete" target="_blank">Deutsche Post Direkt</a> website to use our address solutions.'), ['a']) ?>
             </p>
         </div>
     </aside>
