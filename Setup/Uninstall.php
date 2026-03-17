@@ -23,6 +23,6 @@ class Uninstall implements UninstallInterface
     {
         $defaultConnection = $setup->getConnection();
         $configTable = $setup->getTable('core_config_data');
-        $defaultConnection->delete($configTable, "`path` LIKE 'postidrekt/autocomplete/%'");
+        $defaultConnection->delete($configTable, "`path` LIKE 'postdirekt/autocomplete/%'");
     }
 }

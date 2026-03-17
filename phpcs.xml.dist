@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="PostDirekt Autocomplete">
+    <description>PostDirekt Autocomplete coding standard</description>
+    <arg name="extensions" value="php,phtml"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <rule ref="Magento2">
+        <exclude name="Magento2.Annotation.MethodAnnotationStructure.NoCommentBlock"/>
+    </rule>
+    <file>.</file>
+    <exclude-pattern>Test/*</exclude-pattern>
+    <exclude-pattern>build/*</exclude-pattern>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>docs/*</exclude-pattern>
+</ruleset>

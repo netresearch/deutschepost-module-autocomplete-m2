@@ -15,20 +15,8 @@ use PostDirekt\Autocomplete\Model\ModuleConfig;
 
 class Token implements ArgumentInterface
 {
-    /**
-     * @var AuthService
-     */
-    private $authService;
-
-    /**
-     * @var ModuleConfig
-     */
-    private $moduleConfig;
-
-    public function __construct(AuthService $authService, ModuleConfig $moduleConfig)
+    public function __construct(private AuthService $authService, private ModuleConfig $moduleConfig)
     {
-        $this->authService = $authService;
-        $this->moduleConfig = $moduleConfig;
     }
 
     /**
@@ -41,7 +29,7 @@ class Token implements ArgumentInterface
         }
         try {
             $token = $this->authService->fetchToken();
-        } catch (LocalizedException $exception) {
+        } catch (LocalizedException) {
             return null;
         }
 
