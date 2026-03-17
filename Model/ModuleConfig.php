@@ -13,21 +13,14 @@ use Magento\Store\Model\ScopeInterface;
 
 class ModuleConfig
 {
-    private const CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
-    private const CONFIG_PATH_ACTIVE = 'postdirekt/autocomplete/active';
+    private const string CONFIG_PATH_VERSION = 'postdirekt/autocomplete/version';
+    private const string CONFIG_PATH_ACTIVE = 'postdirekt/autocomplete/active';
 
-    private const CONFIG_PATH_ACTIVE_HOUSENUMBER_HINT = 'postdirekt/autocomplete/active_housenumber_hint';
-    private const CONFIG_PATH_HOUSENUMBER_HINT = 'postdirekt/autocomplete/housenumber_hint';
+    private const string CONFIG_PATH_ACTIVE_HOUSENUMBER_HINT = 'postdirekt/autocomplete/active_housenumber_hint';
+    private const string CONFIG_PATH_HOUSENUMBER_HINT = 'postdirekt/autocomplete/housenumber_hint';
 
-    /**
-     * @var ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    public function __construct(
-        ScopeConfigInterface $scopeConfig
-    ) {
-        $this->scopeConfig = $scopeConfig;
+    public function __construct(private ScopeConfigInterface $scopeConfig)
+    {
     }
 
     public function isActive(?string $store = null): bool

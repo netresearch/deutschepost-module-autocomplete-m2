@@ -1,7 +1,13 @@
 parameters:
-    level: 1
+    level: 8
     treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
     paths:
-        - .
+        - Model
+        - Setup
+        - ViewModel
     excludePaths:
         - Test/*
+    ignoreErrors:
+        -
+            identifier: missingType.iterableValue

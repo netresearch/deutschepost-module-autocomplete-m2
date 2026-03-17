@@ -16,26 +16,13 @@ use Monolog\LogRecord;
 
 class ApiLogHandler extends System
 {
-    /**
-     * @var bool
-     */
-    private $loggingEnabled;
-
-    /**
-     * @var int
-     */
-    private $logLevel;
-
     public function __construct(
         DriverInterface $filesystem,
         ExceptionHandler $exceptionHandler,
-        bool $loggingEnabled = true,
-        int $logLevel = Logger::ERROR
+        private bool $loggingEnabled = true,
+        private int $logLevel = Logger::ERROR
     ) {
         parent::__construct($filesystem, $exceptionHandler);
-
-        $this->loggingEnabled = $loggingEnabled;
-        $this->logLevel = $logLevel;
     }
 
     #[\Override]

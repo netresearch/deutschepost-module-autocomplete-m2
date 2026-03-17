@@ -13,14 +13,8 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class InfoBox implements ArgumentInterface
 {
-    /**
-     * @var ModuleConfig
-     */
-    private $config;
-
-    public function __construct(ModuleConfig $config)
+    public function __construct(private ModuleConfig $config)
     {
-        $this->config = $config;
     }
 
     public function getModuleVersion(): string

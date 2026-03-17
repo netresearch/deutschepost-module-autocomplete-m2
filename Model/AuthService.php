@@ -16,29 +16,8 @@ use Psr\Log\LoggerInterface;
 
 class AuthService
 {
-    /**
-     * @var ConfigInterface
-     */
-    private $coreConfig;
-
-    /**
-     * @var ServiceFactoryInterface
-     */
-    private $authServiceFactory;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    public function __construct(
-        ConfigInterface $coreConfig,
-        ServiceFactoryInterface $authServiceFactory,
-        LoggerInterface $logger
-    ) {
-        $this->coreConfig = $coreConfig;
-        $this->authServiceFactory = $authServiceFactory;
-        $this->logger = $logger;
+    public function __construct(private ConfigInterface $coreConfig, private ServiceFactoryInterface $authServiceFactory, private LoggerInterface $logger)
+    {
     }
 
     /**
@@ -55,7 +34,7 @@ class AuthService
                 ->createAuthenticationService($apiUser, $apiPassword, $this->logger);
             $token = $authService->authenticate();
         } catch (ServiceException $exception) {
-            throw new LocalizedException(__('Unable to fetch token'));
+            throw new LocalizedException(__('Unable to fetch token'), $exception);
         }
 
         return $token->getAccessToken();

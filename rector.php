@@ -19,6 +19,7 @@ return RectorConfig::configure()
     ])
     ->withPhpVersion(PhpVersion::PHP_84)
     ->withSets([
+        SetList::PHP_80,
         SetList::PHP_81,
         SetList::PHP_82,
         SetList::PHP_83,
@@ -27,8 +28,6 @@ return RectorConfig::configure()
     ])
     ->withPHPStanConfigs(phpstanConfigs: [__DIR__ . '/phpstan.neon'])
     ->withSkip([
-        // Skip specific rules if needed
         ReadOnlyPropertyRector::class,
         ReadOnlyClassRector::class,
-        AddTypeToConstRector::class
     ]);

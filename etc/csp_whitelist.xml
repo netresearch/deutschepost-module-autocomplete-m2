@@ -3,7 +3,7 @@
     <policies>
         <policy id="connect-src">
             <values>
-                <value id="postidirekt_autocomplete" type="host">autocomplete2.postdirekt.de</value>
+                <value id="postdirekt_autocomplete" type="host">autocomplete2.postdirekt.de</value>
             </values>
         </policy>
     </policies>
